@@ -1,20 +1,30 @@
 version: '3'
 services:
-  apache:
-    image: httpd:alpine
-    container_name: lamp_apache
-    restart: always
+  web:
+    build: ./web
+    image: php:apache
+    container_name: dev_stack__web
     volumes:
-      - ./www/:/usr/local/apache2/htdocs/
+      - ${DOCUMENT_ROOT}:/var/www/html/
     ports:
-      - 80:80
-      - 443:443
-  php:
-    image: php:alpine
-    container_name: lamp_php
-    restart: always
-    volumes:
-      - ./www/:/var/www/html/
+      - ${HTTP_PORT}:80
+      #- ${HTTPS_PORT:-443}:443
+    links:
+      - mysql
+  mysql:
+    #build: ./mysql
+    image: mysql/mysql-server
+    container_name: dev_stack__mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  # php:
+  #   image: php:alpine
+  #   container_name: lamp_php
+  #   restart: always
+  #   volumes:
+  #     - ./www/:/var/www/html/
     # depends_on:
     #   - db
     # links:
