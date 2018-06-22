@@ -47,8 +47,6 @@ Use VHost example.localhost
 
 ### Bash cli on a container
 
-Execute in the root of the repository:
-
 ```Shell
 docker exec -it dev_stack__mysql bash
 ```
