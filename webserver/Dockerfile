@@ -1,4 +1,4 @@
-FROM php:apache
+FROM php:7-apache
 
 # Updates
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
@@ -7,30 +7,44 @@ RUN apt-get upgrade -y
 # Install useful tools
 RUN apt-get -y install nano
 
-# PHP Extensions
+# Apache config
 
-    # Xdebug
+    # Mod rewrite
+    RUN a2enmod rewrite headers
+
+    # Mod macro
+    RUN a2enmod macro
+
+    # Setup vhosts
+    COPY ./apache2/vhosts.conf /etc/apache2/sites-available/000-default.conf
+    RUN mkdir -p /var/www/vhosts/default
+
+    # Enable config
+    COPY ./apache2/apache2.conf /etc/apache2/conf-available/additional.conf
+    RUN a2enconf additional.conf
+
+# PHP config
+
+    # Enable config
+    COPY ./php7/php.ini /usr/local/etc/php/conf.d/additional.ini
+
+    # Extension Xdebug
     ARG INSTALL_XDEBUG=false
     RUN if [ ${INSTALL_XDEBUG} = true ]; then \
         pecl install xdebug && \
         docker-php-ext-enable xdebug \
     ;fi
 
-    # PDO-MYSQL
+    # Extension PDO-MYSQL
     ARG INSTALL_PDO_MYSQL=false
     RUN if [ ${INSTALL_PDO_MYSQL} = true ]; then \
         docker-php-ext-install pdo_mysql \
     ;fi
 
-    # ImageMagick
+    # Extension ImageMagick
     ARG INSTALL_IMAGEMAGICK=false
     RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
         apt-get install -y libmagickwand-dev imagemagick && \
         pecl install imagick && \
         docker-php-ext-enable imagick \
     ;fi
-
-# Apache modules
-
-    # Mod rewrite
-    RUN a2enmod rewrite headers
