@@ -6,6 +6,7 @@ services:
     container_name: dev_stack__web
     volumes:
       - ${DOCUMENT_ROOT}:/var/www/html/
+      - ./web/additional-php.ini:/usr/local/etc/php/conf.d/additional.ini
     ports:
       - ${HTTP_PORT}:80
       #- ${HTTPS_PORT:-443}:443
@@ -16,33 +17,6 @@ services:
     image: mysql/mysql-server
     container_name: dev_stack__mysql
     ports:
-      - 3306:3306
+      - ${MYSQL_PORT}:3306
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  # php:
-  #   image: php:alpine
-  #   container_name: lamp_php
-  #   restart: always
-  #   volumes:
-  #     - ./www/:/var/www/html/
-    # depends_on:
-    #   - db
-    # links:
-    #   - db
-    # environment:
-    #   - DB_NAME=lemp_bdd
-    #   - TABLE_PREFIX=lemp_
-    #   - DB_HOST=lemp
-    #   - DB_PASSWORD=password
-#   db:
-#     image: mariadb:latest
-#     container_name: lemp_mariadb
-#     restart: always
-#     env_file: db.env
-#     volumes:
-#       - db-data:/var/lib/mysql
-#     environment:
-#       - MYSQL_ROOT_PASSWORD=password
-# volumes:
-#   db-data:
-#     driver: local

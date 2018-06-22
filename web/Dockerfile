@@ -1,17 +1,26 @@
 FROM php:apache
 
+# Updates
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get upgrade -y
 
-# Xdebug
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+# Install useful tools
+RUN apt-get -y install nano
 
 # PHP Extensions
 
+    # Xdebug
+    ARG INSTALL_XDEBUG=false
+    RUN if [ ${INSTALL_XDEBUG} = true ]; then \
+        pecl install xdebug && \
+        docker-php-ext-enable xdebug \
+    ;fi
+
     # PDO-MYSQL
-    RUN apt-get -y install mysql-client libmagickwand-dev
-    RUN docker-php-ext-install pdo_mysql
+    ARG INSTALL_PDO_MYSQL=false
+    RUN if [ ${INSTALL_PDO_MYSQL} = true ]; then \
+        docker-php-ext-install pdo_mysql \
+    ;fi
 
     # ImageMagick
     ARG INSTALL_IMAGEMAGICK=false
@@ -21,5 +30,7 @@ RUN docker-php-ext-enable xdebug
         docker-php-ext-enable imagick \
     ;fi
 
-# Enable apache modules
-RUN a2enmod rewrite headers
+# Apache modules
+
+    # Mod rewrite
+    RUN a2enmod rewrite headers
