@@ -14,6 +14,10 @@
 * phpMyAdmin
 * MongoDB
 
+## Requirements
+
+Docker Engine 1.13.0+ (support for docker-compose v3)
+
 ## Installation
 
 Download the repository:
