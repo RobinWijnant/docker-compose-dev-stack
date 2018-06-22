@@ -18,13 +18,13 @@
 
 Download the repository:
 
-```bash
+```Shell
 git clone https://github.com/RobinWijnant/docker-compose-web-stack.git
 ```
 
 Execute in the root of the repository:
 
-```bash
+```Shell
 docker-compose up -d
 ```
 
@@ -45,7 +45,7 @@ Use VHost example.localhost
 
 Execute in the root of the repository:
 
-```bash
+```Shell
 docker exec -it dev_stack__mysql bash
 ```
 
