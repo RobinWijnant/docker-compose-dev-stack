@@ -9,11 +9,15 @@ RUN apt-get -y install nano
 
 # Apache config
 
-    # Mod rewrite
+    # Mod rewrite (RewriteEngine in vhosts)
     RUN a2enmod rewrite headers
 
-    # Mod macro
+    # Mod macro (for vhosts)
     RUN a2enmod macro
+
+    # Mod Proxy (PhpMyAdmin proxy in vhosts)
+    RUN a2enmod proxy
+    RUN a2enmod proxy_http
 
     # Setup vhosts
     COPY ./apache2/vhosts.conf /etc/apache2/sites-available/000-default.conf

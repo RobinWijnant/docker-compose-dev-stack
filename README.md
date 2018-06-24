@@ -3,14 +3,15 @@
 ## Features
 
 * Apache 2
-    * Custom global config
+    * Config file available
     * Vhost support
 * PHP 7.x
-    * Custom php.ini
+    * php.ini file available
     * PDO_MYSQL extension
     * XDebug extension
     * ImageMagick extension
 * MySQL 8.x
+    * Config file available
 * phpMyAdmin
 * MongoDB
 
@@ -36,6 +37,8 @@ docker-compose up -d
 
 ## Configuration
 
+All services and containers are configurable through an additional config file.
+
 ### Making a virtualhost
 
 Add the following line to `/webserver/apache2/vhosts.conf` and create a new folder `/www/example.localhost`
@@ -43,7 +46,7 @@ Add the following line to `/webserver/apache2/vhosts.conf` and create a new fold
 ```ApacheConf
 Use VHost example.localhost
 ```
-**Note:** Using *.localhost is recommended because it does not require to add an entry in the hosts file of your PC. Other domains like example.com work as well.
+**Note:** Using *.localhost is recommended because it does not require to add an entry in the hosts file of your PC. Other domains like example.com work as well after modifying your hosts file.
 
 ### Bash cli on a container
 
