@@ -35,9 +35,29 @@ docker-compose up -d
 
 **Note:** Warnings that occur during the docker build are related to the image, not to this dev stack.
 
+## Usage
+
+### MySQL
+
+MySQL 8 uses by default the caching_sha2_password plugin for authentication.
+
+```Shell
+username: root
+password: root
+```
+
+For applications that do not support this, you can also authenticate with the mysql_native_password plugin. This user has the same rights as the default root user.
+
+```Shell
+username: root_native
+password: root
+```
+
+PhpMyAdmin is available on: [http://phpmyadmin.localhost](http://phpmyadmin.localhost)
+
 ## Configuration
 
-All services and containers are configurable through an additional config file.
+All services are configurable through an additional config file for each service. Basic settings can be changed in the `.env` file
 
 ### Making a virtualhost
 
