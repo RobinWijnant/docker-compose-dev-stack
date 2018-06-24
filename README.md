@@ -57,7 +57,7 @@ PhpMyAdmin is available on: [http://phpmyadmin.localhost](http://phpmyadmin.loca
 
 ## Configuration
 
-All services are configurable through an additional config file for each service. Basic settings can be changed in the `.env` file
+Basic settings can be changed in the `.env` file. All services are also configurable through an additional config file for each service. 
 
 ### Making a virtualhost
 
