@@ -1,4 +1,4 @@
-# Web stack using docker-compose
+# Dev stack using docker-compose
 
 ## Features
 
