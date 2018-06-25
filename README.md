@@ -71,10 +71,11 @@ Use VHost example.localhost
 ### Bash cli on a container
 
 ```Shell
-docker exec -it dev_stack__mysql bash
+docker-compose exec webserver bash
 ```
 
-All container names:
+All service names:
 
-* dev_stack__webserver
-* dev_stack__mysql
+* webserver
+* mysql
+* phpmyadmin
