@@ -2,20 +2,25 @@ version: '3'
 services:
 
   webserver:
-    build: ./webserver
+    build:
+      context: ./webserver
+      args:
+        - INSTALL_XDEBUG=${INSTALL_XDEBUG}
+        - INSTALL_PDO_MYSQL=${INSTALL_PDO_MYSQL}
+        - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
     image: php:7-apache
     container_name: dev_stack__webserver
     volumes:
       - ${DOCUMENT_ROOT}:/var/www/vhosts
-      - ./webserver/php7/php.ini:/usr/local/etc/php/conf.d/dev_stack.ini
-      - ./webserver/apache2/apache2.conf:/etc/apache2/conf-available/dev_stack.conf
-      - ./webserver/apache2/vhosts.conf:/etc/apache2/sites-available/000-default.conf
+      - ./webserver/php/php.ini:/usr/local/etc/php/conf.d/dev_stack.ini
+      - ./webserver/apache/apache2.conf:/etc/apache2/conf-available/dev_stack.conf
+      - ./webserver/apache/vhosts.conf:/etc/apache2/sites-available/000-default.conf
     ports:
       - ${HTTP_PORT}:80
-      #- ${HTTPS_PORT:-443}:443
+      - ${HTTPS_PORT}:443
     links:
       - mysql
-      - phpmyadmin
+      - phpmyadmin      
 
   mysql:
     image: mysql:8

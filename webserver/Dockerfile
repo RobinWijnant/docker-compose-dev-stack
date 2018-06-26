@@ -20,17 +20,17 @@ RUN apt-get -y install nano
     RUN a2enmod proxy_http
 
     # Setup vhosts
-    COPY ./apache2/vhosts.conf /etc/apache2/sites-available/000-default.conf
+    COPY ./apache/vhosts.conf /etc/apache2/sites-available/000-default.conf
     RUN mkdir -p /var/www/vhosts/default
 
     # Enable config
-    COPY ./apache2/apache2.conf /etc/apache2/conf-available/additional.conf
+    COPY ./apache/apache2.conf /etc/apache2/conf-available/additional.conf
     RUN a2enconf additional.conf
 
 # PHP config
 
     # Enable config
-    COPY ./php7/php.ini /usr/local/etc/php/conf.d/additional.ini
+    COPY ./php/php.ini /usr/local/etc/php/conf.d/additional.ini
 
     # Extension Xdebug
     ARG INSTALL_XDEBUG=false
@@ -40,11 +40,10 @@ RUN apt-get -y install nano
     ;fi
 
     # Extension PDO-MYSQL
-    # ARG INSTALL_PDO_MYSQL=false
-    # RUN if [ ${INSTALL_PDO_MYSQL} = true ]; then \
-        # docker-php-ext-install pdo pdo_mysql \
-    # ;fi
-    RUN docker-php-ext-install pdo_mysql
+    ARG INSTALL_PDO_MYSQL=false
+    RUN if [ ${INSTALL_PDO_MYSQL} = true ]; then \
+        docker-php-ext-install pdo_mysql \
+    ;fi
 
     # Extension ImageMagick
     ARG INSTALL_IMAGEMAGICK=false
