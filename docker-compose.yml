@@ -31,10 +31,12 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: dev_stack__phpmyadmin
+    volumes:
+      - ./phpmyadmin/config.php:/etc/phpmyadmin/config.user.inc.php
     links:
       - mysql
     environment:
       - PMA_HOST=mysql
       - PMA_PORT=3306
-      - PMA_USER=root_native
+      - PMA_USER=root
       - PMA_PASSWORD=root

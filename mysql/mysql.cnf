@@ -2,7 +2,8 @@
 # Settings here override the default my.cnf
 
 
+[mysqld]
+
 # Use the mysql_native_password instead of caching_sha2_password
 # authentication method. This will not alter already created users. 
-[mysqld]
 default_authentication_plugin = mysql_native_password

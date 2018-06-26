@@ -12,4 +12,8 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 -- Note: This method requires an SSL/TLS setup
 CREATE USER 'root_sha256'@'%' IDENTIFIED WITH sha256_password BY 'root';
 GRANT ALL PRIVILEGES ON * . * TO 'root_sha256'@'%' WITH GRANT OPTION;
+
 FLUSH PRIVILEGES;
+
+-- Test db
+CREATE DATABASE testdb;
