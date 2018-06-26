@@ -40,10 +40,11 @@ RUN apt-get -y install nano
     ;fi
 
     # Extension PDO-MYSQL
-    ARG INSTALL_PDO_MYSQL=false
-    RUN if [ ${INSTALL_PDO_MYSQL} = true ]; then \
-        docker-php-ext-install pdo_mysql \
-    ;fi
+    # ARG INSTALL_PDO_MYSQL=false
+    # RUN if [ ${INSTALL_PDO_MYSQL} = true ]; then \
+        # docker-php-ext-install pdo pdo_mysql \
+    # ;fi
+    RUN docker-php-ext-install pdo_mysql
 
     # Extension ImageMagick
     ARG INSTALL_IMAGEMAGICK=false

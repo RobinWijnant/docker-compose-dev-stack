@@ -22,7 +22,7 @@ services:
     container_name: dev_stack__mysql
     volumes:
       - ./mysql/mysql.cnf:/etc/mysql/conf.d/dev_stack.cnf
-      - ./mysql/docker-entrypoint-initdb.d/build.sql:/docker-entrypoint-initdb.d/build.sql
+      - ./mysql/build.sql:/docker-entrypoint-initdb.d/build.sql
     ports:
       - ${MYSQL_PORT}:3306
     environment:

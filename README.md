@@ -68,7 +68,7 @@ Use VHost example.localhost
 ```
 **Note:** Using *.localhost is recommended because it does not require to add an entry in the hosts file of your PC. Other domains like example.com work as well after modifying your hosts file.
 
-### Bash cli on a container
+### Bash cli on a service
 
 ```Shell
 docker-compose exec webserver bash
