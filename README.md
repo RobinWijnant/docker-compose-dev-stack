@@ -14,9 +14,12 @@ A 2018 updated dev or lamp stack using docker-compose v3.
     * ImageMagick extension
 * MySQL 8
     * Config file available
+    * Execute SQL on build
 * phpMyAdmin
     * Config file available
 * MongoDB
+    * Execute JS on build
+* Mongo-Express
 
 ## Requirements
 
