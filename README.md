@@ -1,18 +1,21 @@
 # Dev stack using docker-compose
 
+A 2018 updated dev or lamp stack using docker-compose.
+
 ## Features
 
 * Apache 2
     * Config file available
     * Vhost support
-* PHP 7.x
+* PHP 7
     * php.ini file available
     * PDO_MYSQL extension
     * XDebug extension
     * ImageMagick extension
-* MySQL 8.x
+* MySQL 8
     * Config file available
 * phpMyAdmin
+    * Config file available
 * MongoDB
 
 ## Requirements
@@ -69,6 +72,19 @@ Add the following line to `/webserver/apache2/vhosts.conf` and create a new fold
 Use VHost example.localhost
 ```
 **Note:** Using *.localhost is recommended because it does not require to add an entry in the hosts file of your PC. Other domains like example.com work as well after modifying your hosts file.
+
+### Configure Visual Studio Code for PHP Debugging
+
+1. Install [PHP Debug Extension](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) by Felix Becker.
+
+2. Download PHP on your host machine.
+
+3. Set the path to the executable. For example:
+    ```Json
+    "php.validate.executablePath": "D:\\php-7\\php.exe",
+    ```
+
+**Note:** A seperate php version on the host machine is nessecary for PHP linting in VS Code. It is not a good solution but it is the only way to have linting.
 
 ### Bash cli on a service
 
