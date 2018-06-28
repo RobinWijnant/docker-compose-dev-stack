@@ -1,6 +1,6 @@
 # Dev stack using docker-compose
 
-A 2018 updated dev or lamp stack using docker-compose.
+A 2018 updated dev or lamp stack using docker-compose v3.
 
 ## Features
 
@@ -44,7 +44,7 @@ docker-compose up -d
 
 When installed, MySQL 8 uses by default the caching_sha2_password plugin. This requires SSL/TLS. A valid SSL certificate on localhost is not possible. This is why this MySQL container is setup to use mysql_native_password authentication by default.
 
-mysql_native_password authentication:
+Normal mysql_native_password authentication:
 
 ```Shell
 username: root
@@ -54,7 +54,7 @@ password: root
 caching_sha2_password authentication:
 
 ```Shell
-username: root_sha256
+username: root_sha2
 password: root
 ```
 
@@ -81,7 +81,7 @@ Use VHost example.localhost
 
 3. Set the path to the executable. For example:
     ```Json
-    "php.validate.executablePath": "D:\\php-7\\php.exe",
+    "php.validate.executablePath": "C:\\php-7\\php.exe",
     ```
 
 **Note:** A seperate php version on the host machine is nessecary for PHP linting in VS Code. It is not a good solution but it is the only way to have linting.
