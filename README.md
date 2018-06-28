@@ -48,7 +48,7 @@ Normal mysql_native_password authentication:
 
 ```Shell
 username: root
-password: root
+password: root (.env)
 ```
 
 caching_sha2_password authentication:
@@ -59,6 +59,17 @@ password: root
 ```
 
 PhpMyAdmin is available on: [http://phpmyadmin.localhost](http://phpmyadmin.localhost)
+
+## MongoDB
+
+Both the root username and password is changeable in `.env`
+
+```Shell
+username: root (.env)
+password: root (.env)
+```
+
+Mongo-Express is available on: [http://mongo-express.localhost](http://mongo-express.localhost)
 
 ## Configuration
 
