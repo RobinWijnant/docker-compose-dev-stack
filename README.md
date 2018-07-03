@@ -111,3 +111,5 @@ All service names:
 * webserver
 * mysql
 * phpmyadmin
+* mongo
+* mongo-express

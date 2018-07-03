@@ -52,3 +52,6 @@ RUN apt-get -y install nano
         pecl install imagick && \
         docker-php-ext-enable imagick \
     ;fi
+
+# Set default work directory
+WORKDIR /var/www
