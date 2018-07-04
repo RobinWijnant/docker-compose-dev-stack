@@ -50,7 +50,3 @@ RUN apt-get update && \
         pecl install -f imagick && \
         docker-php-ext-enable imagick \
     ;fi
-
-# Set default work directory
-WORKDIR /var/www
-RUN rm -r /var/www/html
