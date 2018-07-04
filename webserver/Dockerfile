@@ -53,3 +53,4 @@ RUN apt-get update && \
 
 # Set default work directory
 WORKDIR /var/www
+RUN rm -r /var/www/html

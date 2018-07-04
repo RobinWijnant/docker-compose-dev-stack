@@ -11,7 +11,7 @@ services:
     image: php:7-apache
     container_name: dev_stack__webserver
     volumes:
-      - ${DOCUMENT_ROOT}:/var/www/vhosts
+      - ${DOCUMENT_ROOT}:/var/www
       - ./webserver/php/php.ini:/usr/local/etc/php/conf.d/dev_stack.ini
       - ./webserver/apache/apache2.conf:/etc/apache2/conf-available/dev_stack.conf
       - ./webserver/apache/vhosts.conf:/etc/apache2/sites-available/000-default.conf
@@ -79,7 +79,7 @@ services:
     container_name: dev_stack__workspace
     tty: true
     volumes:
-      - ${DOCUMENT_ROOT}:/var/www/vhosts
+      - ${DOCUMENT_ROOT}:/var/www
     environment:
       - TZ=${TIMEZONE}
       - COMPOSER_ALLOW_SUPERUSER=1
