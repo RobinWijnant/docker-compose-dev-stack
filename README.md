@@ -21,9 +21,9 @@ A 2018 updated dev or lamp stack using docker-compose v3.
     * Execute JS on build
 * Mongo-Express
 * Workspace
-    * NodeJS
-    * NPM & Yarn
-    * composer
+    * Git
+    * NodeJS, NPM & Yarn
+    * Composer
 ## Requirements
 
 Docker Engine 1.13.0+ (support for docker-compose v3)
@@ -88,7 +88,12 @@ Add the following line to `/webserver/apache2/vhosts.conf` and create a new fold
 ```ApacheConf
 Use VHost example.localhost
 ```
+
 **Note:** Using *.localhost is recommended because it does not require to add an entry in the hosts file of your PC. Other domains like example.com work as well after modifying your hosts file.
+
+### Making a NodeJS application
+
+There is an example provided in [./www/node-example](www/node-example)
 
 ### Configure Visual Studio Code for PHP Debugging
 

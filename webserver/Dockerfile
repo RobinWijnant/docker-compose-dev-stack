@@ -2,7 +2,7 @@ FROM php:7-apache
 
 # Install nano
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -yqq \
     nano
 
 # Apache config
@@ -33,7 +33,7 @@ RUN apt-get update && \
     # Extension Xdebug
     ARG INSTALL_XDEBUG=false
     RUN if [ ${INSTALL_XDEBUG} = true ]; then \
-        pecl install xdebug && \
+        pecl install -f xdebug && \
         docker-php-ext-enable xdebug \
     ;fi
 
@@ -47,7 +47,7 @@ RUN apt-get update && \
     ARG INSTALL_IMAGEMAGICK=false
     RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
         apt-get install -y libmagickwand-dev imagemagick && \
-        pecl install imagick && \
+        pecl install -f imagick && \
         docker-php-ext-enable imagick \
     ;fi
 
