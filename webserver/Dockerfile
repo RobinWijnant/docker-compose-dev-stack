@@ -1,21 +1,19 @@
 FROM php:7-apache
 
-# Updates
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get upgrade -y
-
-# # Install useful tools
-RUN apt-get -y install nano
+# Install nano
+RUN apt-get update && \
+    apt-get install -y \
+    nano
 
 # Apache config
 
-    # Mod rewrite (RewriteEngine in vhosts)
+    # Mod rewrite (RewriteEngine)
     RUN a2enmod rewrite headers
 
     # Mod macro (for vhosts)
     RUN a2enmod macro
 
-    # Mod Proxy (PhpMyAdmin proxy in vhosts)
+    # Mod Proxy (proxypass in vhosts)
     RUN a2enmod proxy
     RUN a2enmod proxy_http
 

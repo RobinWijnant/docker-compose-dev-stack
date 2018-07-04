@@ -20,17 +20,20 @@ A 2018 updated dev or lamp stack using docker-compose v3.
 * MongoDB
     * Execute JS on build
 * Mongo-Express
-
+* Workspace
+    * NodeJS
+    * NPM & Yarn
+    * composer
 ## Requirements
 
 Docker Engine 1.13.0+ (support for docker-compose v3)
 
 ## Installation
 
-Download the repository:
+Clone the repository:
 
 ```Shell
-git clone https://github.com/RobinWijnant/docker-compose-web-stack.git
+git clone https://github.com/RobinWijnant/docker-compose-dev-stack.git
 ```
 
 Execute in the root of the repository:
