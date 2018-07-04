@@ -46,6 +46,14 @@ docker-compose up -d
 
 ## Usage
 
+### Workspace
+
+Use this container run commands like `yarn`, `npm`, `node` and `composer`.
+
+```Shell
+docker-compose exec workspace bash
+```
+
 ### MySQL
 
 When installed, MySQL 8 uses by default the caching_sha2_password plugin. This requires SSL/TLS. A valid SSL certificate on localhost is not possible. This is why this MySQL container is setup to use mysql_native_password authentication by default.
