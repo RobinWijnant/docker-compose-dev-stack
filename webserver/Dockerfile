@@ -4,7 +4,7 @@ FROM php:7-apache
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get upgrade -y
 
-# Install useful tools
+# # Install useful tools
 RUN apt-get -y install nano
 
 # Apache config
@@ -52,3 +52,6 @@ RUN apt-get -y install nano
         pecl install imagick && \
         docker-php-ext-enable imagick \
     ;fi
+
+# Set default work directory
+WORKDIR /var/www
