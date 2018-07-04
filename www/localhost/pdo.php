@@ -15,4 +15,6 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
+if ($pdo == true) echo 'Connected to mysql!';
+
 ?>

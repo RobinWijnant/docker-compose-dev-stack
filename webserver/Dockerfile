@@ -24,13 +24,13 @@ RUN apt-get -y install nano
     RUN mkdir -p /var/www/vhosts/default
 
     # Enable config
-    COPY ./apache/apache2.conf /etc/apache2/conf-available/additional.conf
-    RUN a2enconf additional.conf
+    COPY ./apache/apache2.conf /etc/apache2/conf-available/dev_stack.conf
+    RUN a2enconf dev_stack.conf
 
 # PHP config
 
     # Enable config
-    COPY ./php/php.ini /usr/local/etc/php/conf.d/additional.ini
+    COPY ./php/php.ini /usr/local/etc/php/conf.d/dev_stack.ini
 
     # Extension Xdebug
     ARG INSTALL_XDEBUG=false
