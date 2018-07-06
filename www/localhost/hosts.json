@@ -1,0 +1,22 @@
+[
+    {
+        "name": "PHPMyAdmin",
+        "url": "http://phpmyadmin.localhost"
+    },
+    {
+        "name": "Mongo-Express",
+        "url": "http://mongo-express.localhost"
+    },
+    {
+        "name": "Example",
+        "url": "http://example.localhost"
+    },
+    {
+        "name": "Workspace:3000",
+        "url": "http://3000.localhost"
+    },
+    {
+        "name": "Workspace:5000",
+        "url": "http://5000.localhost"
+    }
+]
