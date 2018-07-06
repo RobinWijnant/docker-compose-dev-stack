@@ -125,7 +125,7 @@ There is an example provided in [`/www/node-example`](www/node-example)
 ### Bash cli on a service
 
 ```Shell
-docker-compose exec webserver sh
+docker-compose exec webserver bash
 ```
 
 All service names:
@@ -135,3 +135,5 @@ All service names:
 * phpmyadmin
 * mongo
 * mongo-express
+* workspace
+* mailcatcher
