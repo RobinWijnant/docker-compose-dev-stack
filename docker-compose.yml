@@ -7,6 +7,7 @@ services:
       args:
         - INSTALL_XDEBUG=${INSTALL_XDEBUG}
         - INSTALL_PDO_MYSQL=${INSTALL_PDO_MYSQL}
+        - INSTALL_MONGODB=${INSTALL_MONGODB}
         - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
     image: php:7-apache
     container_name: dev_stack__webserver
@@ -74,7 +75,13 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_PASSWORD}
 
   workspace:
-    build: ./workspace
+    build:
+      context: ./workspace
+      args:
+        - INSTALL_XDEBUG=${INSTALL_XDEBUG}
+        - INSTALL_PDO_MYSQL=${INSTALL_PDO_MYSQL}
+        - INSTALL_MONGODB=${INSTALL_MONGODB}
+        - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
     image: php:7
     container_name: dev_stack__workspace
     tty: true

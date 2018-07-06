@@ -43,6 +43,13 @@ RUN apt-get update && \
         docker-php-ext-install pdo_mysql \
     ;fi
 
+    # Extension MongoDB
+    ARG INSTALL_MONGODB=false
+    RUN if [ ${INSTALL_MONGODB} = true ]; then \
+        pecl install -f mongodb && \
+        docker-php-ext-enable mongodb \
+    ;fi
+
     # Extension ImageMagick
     ARG INSTALL_IMAGEMAGICK=false
     RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \

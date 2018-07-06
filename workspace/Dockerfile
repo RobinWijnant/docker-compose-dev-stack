@@ -9,6 +9,36 @@ RUN apt-get update && \
     git \
     nano
 
+# PHP config
+
+    # Extension Xdebug
+    ARG INSTALL_XDEBUG=false
+    RUN if [ ${INSTALL_XDEBUG} = true ]; then \
+        pecl install -f xdebug && \
+        docker-php-ext-enable xdebug \
+    ;fi
+
+    # Extension PDO-MYSQL
+    ARG INSTALL_PDO_MYSQL=false
+    RUN if [ ${INSTALL_PDO_MYSQL} = true ]; then \
+        docker-php-ext-install pdo_mysql \
+    ;fi
+
+    # Extension MongoDB
+    ARG INSTALL_MONGODB=false
+    RUN if [ ${INSTALL_MONGODB} = true ]; then \
+        pecl install -f mongodb && \
+        docker-php-ext-enable mongodb \
+    ;fi
+
+    # Extension ImageMagick
+    ARG INSTALL_IMAGEMAGICK=false
+    RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
+        apt-get install -y libmagickwand-dev imagemagick && \
+        pecl install -f imagick && \
+        docker-php-ext-enable imagick \
+    ;fi
+
 # Install composer
 RUN curl -s http://getcomposer.org/installer | php && \
     echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
@@ -32,4 +62,4 @@ RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     yarn
 
 # Set default work directory
-WORKDIR /var/www
+WORKDIR /var/www/html

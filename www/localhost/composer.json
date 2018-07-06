@@ -1,0 +1,9 @@
+{
+    "name": "robinwijnant/docker-compose-dev-stack",
+    "description": "The Dashboard of the Dev Stack",
+    "type": "project",
+    "require": {
+        "mongodb/mongodb": "^1.4"
+    },
+    "license": "MIT"
+}
