@@ -78,7 +78,7 @@ PhpMyAdmin is available on: [http://phpmyadmin.localhost](http://phpmyadmin.loca
 
 ### MongoDB
 
-Both the root username and password are changeable in `.env`
+Both the root username and password are changeable in [`.env`](/.env)
 
 ```Shell
 username: root (.env)
