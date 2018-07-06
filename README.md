@@ -97,7 +97,7 @@ Basic settings can be changed in [`.env`](/.env). All services are also configur
 
 ### Making a virtualhost
 
-Add the following line to [`/webserver/apache2/vhosts.conf`](/webserver/apache2/vhosts.conf) and create a new folder `/www/example.localhost`
+Add the following line to [`/webserver/apache/vhosts.conf`](/webserver/apache/vhosts.conf) and create a new folder `/www/example.localhost`
 
 ```ApacheConf
 Use VHost example.localhost
