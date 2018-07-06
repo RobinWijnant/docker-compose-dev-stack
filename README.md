@@ -93,11 +93,11 @@ It is recommended to use PHP Mailer (available through composer) to send mails i
 
 ## Configuration
 
-Basic settings can be changed in `.env`. All services are also configurable through an additional config file for each service. These additional config files only require a restart of the containers in order to take effect.
+Basic settings can be changed in [`.env`](/.env). All services are also configurable through an additional config file for each service. These additional config files only require a restart of the containers in order to take effect.
 
 ### Making a virtualhost
 
-Add the following line to `/webserver/apache2/vhosts.conf` and create a new folder `/www/example.localhost`
+Add the following line to [`/webserver/apache2/vhosts.conf`](/webserver/apache2/vhosts.conf) and create a new folder `/www/example.localhost`
 
 ```ApacheConf
 Use VHost example.localhost
@@ -107,7 +107,7 @@ Use VHost example.localhost
 
 ### Making a NodeJS application
 
-There is an example provided in [./www/node-example](www/node-example)
+There is an example provided in [`/www/node-example`](www/node-example)
 
 ### Configure Visual Studio Code for PHP Debugging
 
