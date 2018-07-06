@@ -8,6 +8,10 @@
         "url": "http://mongo-express.localhost"
     },
     {
+        "name": "MailCatcher",
+        "url": "http://mailcatcher.localhost"
+    },
+    {
         "name": "Example",
         "url": "http://example.localhost"
     },

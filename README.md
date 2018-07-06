@@ -87,6 +87,10 @@ password: root (.env)
 
 Mongo-Express is available on: [http://mongo-express.localhost](http://mongo-express.localhost)
 
+### Sending mail
+
+It is recommended to use PHP Mailer (available through composer) to send mails in PHP. You can check out this [example](/www/localhost/tests/mailer.php). A live test is available on [http://localhost/tests/mailer.php](http://localhost/tests/mailer.php)
+
 ## Configuration
 
 Basic settings can be changed in `.env`. All services are also configurable through an additional config file for each service. These additional config files only require a restart of the containers in order to take effect.

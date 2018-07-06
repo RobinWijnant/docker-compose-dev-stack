@@ -58,6 +58,12 @@
                     PHP MongoDB test
                 </a>
             </li>
+            <li>
+                <a href="http://localhost/tests/mailer.php">
+                    <i class="fas fa-database"></i>
+                    PHP Mailer test
+                </a>
+            </li>
         </ul>
     </div>
     <div class="wrapper">
