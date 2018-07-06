@@ -44,6 +44,8 @@ docker-compose up -d
 
 **Note:** Warnings that occur during the docker build are related to the image, not to this dev stack.
 
+After the containers are up and running the dashboard needs a couple of seconds to build (only once)
+
 ## Usage
 
 ### Workspace

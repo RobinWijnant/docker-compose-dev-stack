@@ -61,5 +61,8 @@ RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     apt-get install -y \
     yarn
 
+# Copy init script
+COPY ./init.sh /etc/init.d/dev_stack.sh
+
 # Set default work directory
 WORKDIR /var/www/html

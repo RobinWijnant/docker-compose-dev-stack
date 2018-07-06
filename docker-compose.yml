@@ -84,7 +84,7 @@ services:
         - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
     image: php:7
     container_name: dev_stack__workspace
-    tty: true
+    command: /bin/bash -c /etc/init.d/dev_stack.sh
     volumes:
       - ${DOCUMENT_ROOT}:/var/www/html
     environment:
