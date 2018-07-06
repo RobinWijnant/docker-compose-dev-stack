@@ -44,6 +44,8 @@ docker-compose up -d
 
 **Note:** Warnings that occur during the docker build are related to the image, not to this dev stack.
 
+After the containers are up and running the dashboard needs a couple of seconds to build (only once)
+
 ## Usage
 
 ### Workspace
@@ -76,7 +78,7 @@ PhpMyAdmin is available on: [http://phpmyadmin.localhost](http://phpmyadmin.loca
 
 ### MongoDB
 
-Both the root username and password are changeable in `.env`
+Both the root username and password are changeable in [`.env`](/.env)
 
 ```Shell
 username: root (.env)
@@ -85,13 +87,17 @@ password: root (.env)
 
 Mongo-Express is available on: [http://mongo-express.localhost](http://mongo-express.localhost)
 
+### Sending mail
+
+It is recommended to use PHP Mailer (available through composer) to send mails in PHP. You can check out this [example](/www/localhost/tests/mailer.php). A live test is available on [http://localhost/tests/mailer.php](http://localhost/tests/mailer.php)
+
 ## Configuration
 
-Basic settings can be changed in `.env`. All services are also configurable through an additional config file for each service. These additional config files only require a restart of the containers in order to take effect.
+Basic settings can be changed in [`.env`](/.env). All services are also configurable through an additional config file for each service. These additional config files only require a restart of the containers in order to take effect.
 
 ### Making a virtualhost
 
-Add the following line to `/webserver/apache2/vhosts.conf` and create a new folder `/www/example.localhost`
+Add the following line to [`/webserver/apache2/vhosts.conf`](/webserver/apache2/vhosts.conf) and create a new folder `/www/example.localhost`
 
 ```ApacheConf
 Use VHost example.localhost
@@ -101,7 +107,7 @@ Use VHost example.localhost
 
 ### Making a NodeJS application
 
-There is an example provided in [./www/node-example](www/node-example)
+There is an example provided in [`/www/node-example`](www/node-example)
 
 ### Configure Visual Studio Code for PHP Debugging
 
