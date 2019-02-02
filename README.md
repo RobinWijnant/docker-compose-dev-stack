@@ -7,7 +7,7 @@ A 2018 updated dev or lamp stack using docker-compose v3.
 * Apache 2
     * Config file available
     * Vhost support
-* PHP 7
+* PHP 7.2
     * php.ini file available
     * PDO_MYSQL extension
     * XDebug extension
